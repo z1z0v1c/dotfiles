@@ -19,3 +19,8 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 vim.opt.scrolloff = 3
+
+-- Sync clipboard between os and nvim
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
