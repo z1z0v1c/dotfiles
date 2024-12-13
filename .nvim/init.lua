@@ -24,3 +24,11 @@ vim.opt.scrolloff = 3
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
+
+
+-- [[ Keybindings ]]
+
+-- Remap <Esc> key
+vim.keymap.set('i', '<C-j>', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-j>', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-j>', '<cmd>nohlsearch<CR>')
