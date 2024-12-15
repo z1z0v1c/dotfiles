@@ -1,4 +1,3 @@
-
 -- Set globals.
 -- Leader must be set before plugins are loaded.
 vim.g.mapleader = ' '
