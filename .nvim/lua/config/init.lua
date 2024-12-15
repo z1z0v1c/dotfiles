@@ -1,10 +1,11 @@
 -- Set globals.
 -- Leader must be set before plugins are loaded.
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = '\\'
 vim.g.have_nerd_font = true
 
 require("config.lazy")
+require("config.keymap")
 
 -- Set options
 vim.opt.number = true
@@ -28,20 +29,6 @@ vim.schedule(function()
 end)
 
 
--- [[ Keybindings ]]
-
--- Remap <Esc> key
-vim.keymap.set('i', '<C-j>', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('v', '<C-j>', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-j>', '<cmd>nohlsearch<CR>')
-
--- Use CTRL+<hjkl> to switch between windows
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
-
 -- [[ Autocommands ]]
 
 -- Highlight yanked text
@@ -50,5 +37,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
+  end,
+})
+
+vim.api.nvim_create_augroup('neotree', {})
+vim.api.nvim_create_autocmd('VimEnter', {
+  desc = 'Open Neotree automatically',
+  group = 'neotree',
+  callback = function()
+    if vim.fn.argc() == 0 then
+      vim.cmd 'Neotree toggle'
+    end
   end,
 })
