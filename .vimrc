@@ -14,3 +14,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
+" Install plugins
+call plug#begin('~/.vim/plugged') " Specify a directory for plugins
+
+Plug 'morhetz/gruvbox'
+
+call plug#end() " Initialize plugin system
+
+colorscheme gruvbox
+
