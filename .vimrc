@@ -5,3 +5,5 @@ set relativenumber		" Show relative line numbers
 set wildmenu			" Enhanced command-line completion with visual menu
 set cursorline                  " Highlight current line
 set nowrap                      " Do not wrap long lines
+
+inoremap <C-j> <ESC>
