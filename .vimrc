@@ -10,6 +10,7 @@ set autowrite			" Automatically write files when switching buffers or leaving Vi
 set statusline=%<%t%h%m%r\ \ %a\ %{strftime(\"%c\")}%=0x%b\ <%l,%c%v>\ %p
 
 inoremap <C-j> <ESC>
+let mapleader = "," " Set space as the leader key
 
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -28,4 +29,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Better syntax highlighting
 call plug#end() " Initialize plugin system
 
 colorscheme gruvbox
+
+" File operations
+nnoremap <leader>w :w<CR>              " Save file
+nnoremap <leader>q :q<CR>              " Quit
+nnoremap <leader>ww :wq<CR>            " Save and quit
+nnoremap <leader>qq :q!<CR>            " Force quit
 
