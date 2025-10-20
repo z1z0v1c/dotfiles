@@ -41,3 +41,9 @@ nnoremap <leader>v :vsplit<CR>        " Vertical split
 nnoremap <leader>h :split<CR>         " Horizontal split
 nnoremap <leader>c :close<CR>         " Close window
 
+" Tab operations key bindings
+nnoremap <leader>tn :tabnew<CR>        " New tab
+nnoremap <leader>tc :tabclose<CR>      " Close tab
+nnoremap <leader>tl :tabnext<CR>       " Next tab
+nnoremap <leader>th :tabprevious<CR>   " Previous tab
+
