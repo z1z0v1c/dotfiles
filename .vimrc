@@ -33,7 +33,6 @@ colorscheme gruvbox " Set color scheme
 let mapleader = "," " Set comma as the leader key
 
 let g:highlightedyank_highlight_duration = 150 " Higlight yanked text for 150 ms
-let g:NERDTreeMinimalUI = 1           " Hide help text
 
 " File operations key bindings
 nnoremap <leader>w :w<CR>              " Save file
@@ -51,6 +50,17 @@ nnoremap <leader>tn :tabnew<CR>        " New tab
 nnoremap <leader>tc :tabclose<CR>      " Close tab
 nnoremap <leader>tl :tabnext<CR>       " Next tab
 nnoremap <leader>th :tabprevious<CR>   " Previous tab
+
+" NERDTree Settings
+let g:NERDTreeFileLines = 1 	      " Show line count for each file
+let g:NERDTreeMinimalUI = 1           " Hide help text
+let g:NERDTreeShowHidden = 1          " Show hidden files
+let g:NERDTreeMinimalUI = 1           " Hide help text
+let g:NERDTreeStatusline = ''         " Disable NERDTree statusline
+let g:NERDTreeMouseMode = 3           " Single-click to open
+let g:NERDTreeShowLineNumbers = 0     " Hide line numbers
+let g:NERDTreeAutoDeleteBuffer = 1    " Delete buffer when file deleted
+let g:NERDTreeIgnore = ['__pycache__', '\.git$']  " Files to ignore
 
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
