@@ -9,9 +9,6 @@ set autowrite			" Automatically write files when switching buffers or leaving Vi
 
 set statusline=%<%t%h%m%r\ \ %a\ %{strftime(\"%c\")}%=0x%b\ <%l,%c%v>\ %p
 
-inoremap <C-j> <ESC>
-let mapleader = "," " Set comma as the leader key
-
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -flo ~/.vim/autoload/plug.vim --create-dirs
@@ -25,10 +22,16 @@ Plug 'morhetz/gruvbox' " Gruvbox color scheme
 Plug 'ryanoasis/vim-devicons' " File type icons
 Plug 'preservim/nerdtree' " File system explorer
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Better syntax highlighting
+Plug 'machakann/vim-highlightedyank' " Highlight yanked text
 
 call plug#end() " Initialize plgin system
 
-colorscheme gruvbox
+inoremap <C-j> <ESC> " Remap escape for insert mode
+
+colorscheme gruvbox " Set color scheme
+
+let mapleader = "," " Set comma as the leader key
+let g:highlightedyank_highlight_duration = 150 " Higlight yanked text for 150 ms
 
 " File operations key bindings
 nnoremap <leader>w :w<CR>              " Save file
@@ -58,4 +61,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
