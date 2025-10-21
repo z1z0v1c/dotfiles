@@ -31,7 +31,9 @@ inoremap <C-j> <ESC> " Remap escape for insert mode
 colorscheme gruvbox " Set color scheme
 
 let mapleader = "," " Set comma as the leader key
+
 let g:highlightedyank_highlight_duration = 150 " Higlight yanked text for 150 ms
+let g:NERDTreeMinimalUI = 1           " Hide help text
 
 " File operations key bindings
 nnoremap <leader>w :w<CR>              " Save file
