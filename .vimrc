@@ -1,4 +1,4 @@
-set nocompatible 		" Disable Vi compatibility mode
+set nocompatible 		" Disable Vi compatibility mode (must be first)
 set mouse=a 			" Enable mouse integration
 set number 			" Show line numbers
 set relativenumber		" Show relative line numbers
@@ -50,6 +50,11 @@ nnoremap <leader>tn :tabnew<CR>        " New tab
 nnoremap <leader>tc :tabclose<CR>      " Close tab
 nnoremap <leader>tl :tabnext<CR>       " Next tab
 nnoremap <leader>th :tabprevious<CR>   " Previous tab
+
+" Buffer operations
+nnoremap <leader>bn :bnext<CR>         " Next buffer
+nnoremap <leader>bp :bprevious<CR>     " Previous buffer
+nnoremap <leader>bd :bdelete<CR>       " Delete buffer
 
 " NERDTree Settings
 let g:NERDTreeFileLines = 1 	      " Show line count for each file
