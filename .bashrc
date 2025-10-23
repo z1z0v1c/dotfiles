@@ -24,13 +24,20 @@ export EDITOR=/usr/bin/vim
 export VISUAL=$EDITOR
 
 # Aliases
+alias a=alias
+alias c=clear
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ~='cd ~'
 
-alias la='ls -AhlF'
+alias l='ls -CF --color=auto'
+alias l.='ls -d .* --color=auto'
+alias la='ls -AhlF --color=auto'
+alias ls='ls --color=auto'
 
+alias g=git
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit -m'
@@ -53,8 +60,9 @@ alias du='du -h'
 
 alias ip='curl ifconfig.me'
 
-alias update='sudo apt update && sudo apt upgrade'
+alias up='sudo apt update && sudo apt upgrade'
 
+alias d=docker
 alias dp='docker ps'
 alias dpa='docker ps -a'
 alias di='docker images'
@@ -63,8 +71,8 @@ alias dc='docker container'
 alias desk='cd ~/Desktop'
 alias down='cd ~/Downloads'
 
-alias vimrc='vim ~/.vimrc'
-alias bashrc='vim ~/.bashrc && source ~/.bashrc'
+alias vrc='vim ~/.vimrc'
+alias brc='vim ~/.bashrc && source ~/.bashrc'
 
 alias mkcd='mkdir -p "$1" && cd "$1"'  # Create and enter directory
 
