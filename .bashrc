@@ -1,6 +1,4 @@
-# .bashrc
-
-# Source global definitions
+# .bashrc # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
@@ -22,6 +20,39 @@ fi
 unset rc
 export EDITOR=/usr/bin/vim
 export VISUAL=$EDITOR
+
+# OSH
+# Enable the subsequent settings only in interactive sessions
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
+export OSH="$HOME/.oh-my-bash"
+
+OSH_THEME="random"
+OMB_CASE_SENSITIVE="true"
+DISABLE_AUTO_TITLE="true"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+OMB_USE_SUDO=false
+
+completions=(
+  git
+  composer
+  ssh
+)
+
+aliases=(
+  general
+)
+
+plugins=(
+  git
+  bashmarks
+)
+
+source "$OSH"/oh-my-bash.sh
 
 # Aliases
 alias a=alias
